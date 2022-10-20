@@ -1,70 +1,99 @@
-# Getting Started with Create React App
+**Read in other languages: [English](README.en.md), [Українська](README.md).**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React homework template
 
-## Available Scripts
+Цей проект було створено за допомогою
+[Create React App](https://github.com/facebook/create-react-app). Для
+ознайомлення та налаштування додаткових можливостей
+[зверніться до документації](https://facebook.github.io/create-react-app/docs/getting-started).
 
-In the project directory, you can run:
+## Підготовка проекту
 
-### `npm start`
+1. Встановлено LTS-версію Node.js.
+2. Використано цей
+   [шаблон React-проекту](https://github.com/goitacademy/react-homework-template#readme)
+   як стартову точку проекту.
+3. Встановлено базові залежності проекту командою `npm install`.
+4. Запуск режиму розробки виконується командою `npm start`.
+5. Сторінка в браузері за адресою
+   [http://localhost:3000](http://localhost:3000).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# Критерії приймання
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Створені репозиторії `goit-react-hw-02-feedback`.
+- При здачі домашньої роботи є два посилання: на вихідні файли та робочі
+  сторінки кожного завдання на `GitHub Pages`.
 
-### `npm test`
+  - Під час запуску коду завдання в консолі відсутні помилки та попередження.
+  - Для кожного компонента є окремий файл у папці `src/components`.
+  - Для компонентів описані `propTypes`.
+  - Все, що компонент очікує у вигляді пропсів, передається йому під час
+    виклику. JS-код чистий і зрозумілий, використовується `Prettier`.
+  - Стилізація виконана `CSS-модулями` або `Styled Components`.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  ## 1 - Віджет відгуків
 
-### `npm run build`
+  Як і більшість компаній, кафе Expresso збирає відгуки від своїх клієнтів. Твоє
+  завдання – створити додаток для збору статистики. Є лише три варіанти
+  зворотного зв'язку: добре, нейтрально і погано.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Крок 1
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Застосунок повинен відображати кількість зібраних відгуків для кожної категорії.
+Застосунок не повинен зберігати статистику відгуків між різними сесіями
+(оновлення сторінки).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Стан застосунку обов'язково повинен бути наступного вигляду, додавати нові
+властивості не можна.
 
-### `npm run eject`
+```js
+state = { good: 0, neutral: 0, bad: 0 };
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Інтерфейс може мати такий вигляд.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<Image
+  src="./assets/step_1.png"
+  alt="component preview"
+  maxWidth={960}
+/>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Крок 2
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Розшир функціонал застосунку таким чином, щоб в інтерфейсі відображалося більше
+статистики про зібрані відгуки. Додай відображення загальної кількості зібраних
+відгуків з усіх категорій та відсоток позитивних відгуків. Для цього створи
+допоміжні методи `countTotalFeedback()` і`countPositiveFeedbackPercentage()`,
+які підраховують ці значення, ґрунтуючись на даних у стані (обчислювані дані).
 
-## Learn More
+<Image
+  src="./assets/step_2.png"
+  alt="component preview"
+  maxWidth={960}
+/>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Крок 3
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Виконай рефакторинг застосунку. Стан застосунку повинен залишатися у кореневому
+компоненті `<App>`.
 
-### Code Splitting
+- Винеси відображення статистики в окремий компонент
+  `<Statistics good={} neutral={} bad={} total={} positivePercentage={}>`. -
+  Винеси блок кнопок в компонент
+  `<FeedbackOptions options={} onLeaveFeedback={}>`.
+- Створи компонент `<Section title="">`, який рендерить секцію із заголовком і
+  дітей (children).
+- Обгорни кожен із `<Statistics>` і `<FeedbackOptions>` у створений компонент
+  секції.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Крок 4
 
-### Analyzing the Bundle Size
+Розшир функціонал застосунку таким чином, щоб блок статистики рендерився тільки
+після того, як було зібрано хоча б один відгук. Повідомлення про відсутність
+статистики винеси в компонент `<Notification message="There is no feedback">`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<Image
+  src="./assets/step_4.gif"
+  alt="component preview"
+  maxWidth={960}
+/>
