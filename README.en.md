@@ -1,19 +1,13 @@
 **Read in other languages: [English](README.en.md), [Українська](README.md).**
 
-# React homework template
-
-This project was created with
-[Create React App](https://github.com/facebook/create-react-app). To get
-acquainted and configure additional features
-[refer to documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-## Preparing a project
+# Preparing a project
 
 1. You have an LTS version of Node.js installed on your computer.
    [Download and install](https://nodejs.org/en/) if needed.
-2. Use this
-   [React project template](https://github.com/goitacademy/react-homework-template/blob/main/README.en.md)
-   as a starting point for your application.
+2. This project was created with
+   [Create React App](https://github.com/facebook/create-react-app). To get
+   acquainted and configure additional features
+   [refer to documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 3. Install the project's base dependencies with the `npm install` command.
 4. Start development mode by running the `npm start` command.
 5. Go to [http://localhost:3000](http://localhost:3000) in your browser. This
@@ -24,20 +18,19 @@ acquainted and configure additional features
 - The `goit-react-hw-02-feedback`.
 - When submitting homework, there are two links: to the source files and the
   working pages of each assignment on `GitHub Pages`.
+- There are no errors or warnings in the console when you run the code for the
+  assignment.
+- There is a separate file for each component in the `src/components` folder.
+- The `propTypes` are described for the components. Everything that a component
+  expects in the form of props is passed to it when it is called.
+- JS code is clean and clear, using `Prettier`.
+- Styling is done by `CSS modules` or `Styled Components`.
 
-  - There are no errors or warnings in the console when you run the code for the
-    assignment.
-  - There is a separate file for each component in the `src/components` folder.
-  - The `propTypes` are described for the components. Everything that a
-    component expects in the form of props is passed to it when it is called.
-  - JS code is clean and clear, using `Prettier`.
-  - Styling is done by `CSS modules` or `Styled Components`.
+## 1 - Feedback Widget.
 
-  ## 1 - Feedback Widget.
-
-  Like most companies, Expresso Cafe collects reviews from its customers. Your
-  task is to create an application to collect statistics. There are only three
-  options for feedback: good, neutral, and bad.
+Like most companies, Expresso Cafe collects reviews from its customers. Your
+task is to create an application to collect statistics. There are only three
+options for feedback: good, neutral, and bad.
 
 ### Step 1.
 
