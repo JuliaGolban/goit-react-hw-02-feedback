@@ -3,14 +3,14 @@ import { Section } from '../../constants/Section.styled';
 import {Title} from '../../constants/Title.styled'
 import { Wrapper, GoodBtn, NeutralBtn, BadBtn } from './Reviews.styled';
 
-export const Reviews = () => {
+export const Reviews = ({onGoodBtnClick, onNeutralBtnClick, onBadBtnClick}) => {
     return (
             <Section>
                 <Title as='h2' level='l'>Please leave feedback</Title>
                 <Wrapper>
-                    <GoodBtn>Good</GoodBtn>
-                    <NeutralBtn>Neutral</NeutralBtn>
-                    <BadBtn>Bad</BadBtn>
+                    <GoodBtn onClick={onGoodBtnClick}>Good</GoodBtn>
+                    <NeutralBtn onClick={onNeutralBtnClick}>Neutral</NeutralBtn>
+                    <BadBtn onClick={onBadBtnClick}>Bad</BadBtn>
                 </Wrapper>
             </Section>
     );
