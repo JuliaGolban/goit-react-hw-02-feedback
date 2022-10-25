@@ -7,9 +7,9 @@ export const FeedbackOptoins = ({options, onLeaveFeedback}) => {
     return (
         <Section title='Please leave feedback'>
             <Wrapper>
-                {options.map((options) => {
+                {options.map((type) => {
                     return (
-                        <Btn key={options} onClick={ ()=> onLeaveFeedback(options)}>{options}
+                        <Btn className={type} key={type} onClick={ ()=> onLeaveFeedback(type)}>{type}
                         </Btn>)
                 })}
             </Wrapper>
