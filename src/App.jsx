@@ -1,7 +1,20 @@
-import './App.css';
+import { Component } from 'react';
+import { Container } from './constants/Container.styled';
+import { Reviews } from './components/Reviews/Reviews';
+import { Statistics } from './components/Statistics/Statistics';
 
-function App() {
-  return <div className="App"></div>;
+export class App extends Component { 
+  state = {
+    initionValue: 0,
+  };
+
+  render() {
+
+    return (
+      <Container>
+        <Reviews></Reviews>
+        <Statistics></Statistics>
+      </Container>
+      );
+  }
 }
-
-export default App;
