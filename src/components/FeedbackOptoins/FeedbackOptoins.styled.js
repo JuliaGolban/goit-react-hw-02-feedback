@@ -15,7 +15,17 @@ const Btn = styled.button`
   font-weight: 700;
   text-transform: uppercase;
 
-  background-color: rgba(160, 141, 196, 0.5);
+  background-color: ${props => {
+    if (props.good) {
+      return 'rgba(0, 128, 0, 0.5)';
+    }
+    if (props.neutral) {
+      return 'rgba(255, 255, 0, 0.5)';
+    }
+    if (props.bad) {
+      return 'rgba(128, 0, 0, 0.5)';
+    } else return 'rgba(160, 141, 196, 0.5)';
+  }};
   border-radius: 5px;
   border: 1px solid rgba(128, 128, 128, 0.263);
 
@@ -29,16 +39,4 @@ const Btn = styled.button`
   }
 `;
 
-const GoodBtn = styled(Btn)`
-  background-color: rgba(0, 128, 0, 0.5);
-`;
-
-const NeutralBtn = styled(Btn)`
-  background-color: rgba(255, 255, 0, 0.5);
-`;
-
-const BadBtn = styled(Btn)`
-  background-color: rgba(128, 0, 0, 0.5);
-`;
-
-export { Wrapper, Btn, GoodBtn, NeutralBtn, BadBtn };
+export { Wrapper, Btn };
