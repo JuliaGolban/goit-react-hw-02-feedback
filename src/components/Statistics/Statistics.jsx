@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 // import React, { Component } from 'react';
 import { Section } from '../../constants/Section.styled';
-import {Title} from '../../constants/Title.styled'
+import { Title } from '../../constants/Title.styled'
 import { List, Item,ItemGeneral } from './Statistics.styled';
 
-export const Statistics = ({good, neutral, bad, total, positive}) => {
+export const Statistics = ({good, neutral, bad, total, positivePercentage}) => {
     return (
             <Section>
                 <Title as='h2' level='l'>Statistics</Title>
@@ -13,10 +14,18 @@ export const Statistics = ({good, neutral, bad, total, positive}) => {
                     <Item>Neutral: {neutral}</Item>
                     <Item>Bad: {bad}</Item>
                     <ItemGeneral>Total: {total}</ItemGeneral>
-                    <ItemGeneral>Positive feedback: {positive}</ItemGeneral>
+                    <ItemGeneral>Positive feedback: {positivePercentage}%</ItemGeneral>
                 </List>
             </Section>
     );
+}
+
+Statistics.propTypes = {
+    good: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    neutral: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    bad: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    total: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    positive: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 }
 
 // export class Statistics extends Component {

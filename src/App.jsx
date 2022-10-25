@@ -4,19 +4,15 @@ import { Reviews } from './components/Reviews/Reviews';
 import { Statistics } from './components/Statistics/Statistics';
 
 export class App extends Component { 
-   static defaultProps = {
+    state = {
         good: 0,
         neutral: 0,
         bad: 0,
-        initialValue: 0,
-    };
-
-    state = {
-        good: this.props.good,
-        neutral: this.props.neutral,
-        bad: this.props.bad,
     }
 
+    total= 0;
+    positivePercentage= 0;
+  
     handleGoodReviews = () => {
         this.setState(prevState => ({
             good: prevState.good +1,
@@ -34,9 +30,19 @@ export class App extends Component {
             bad: prevState.bad +1,
         }))
     }
-
-
+  
+    countTotalFeedback = ()=> {
+      this.total = this.state.good + this.state.neutral + this.state.bad;
+    }
+  
+    countPositiveFeedbackPercentage = () => {
+      if (!this.total) return;
+      this.positivePercentage = (this.state.good / this.total) * 100;
+    }
+  
   render() {
+    this.countTotalFeedback();
+    this.countPositiveFeedbackPercentage();
 
     return (
       <Container>
@@ -49,8 +55,8 @@ export class App extends Component {
           good={this.state.good}
           neutral={this.state.neutral}
           bad={this.state.bad}
-          total={this.state.total}
-          positive = {this.state.positive}
+          total={this.total}
+          positivePercentage={this.positivePercentage.toFixed(0)}
         ></Statistics>
       </Container>
       );
